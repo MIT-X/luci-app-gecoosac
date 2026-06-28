@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       sdk_version:
-        description: 可选：要编译的版本，ALL表示全部
+        description: 选择版本，ALL表示全部
         required: false
         default: ALL
         type: choice
@@ -14,7 +14,7 @@ on:
           - '24.10'
           - '23.05'
       arch:
-        description: 可选：要编译的架构，ALL表示全部
+        description: 选择架构，ALL表示全部
         required: false
         default: ALL
         type: choice
