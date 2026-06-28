@@ -436,7 +436,6 @@ add_luci_i18n_packages() {
   local app_name="$1"
 
   add_artifact_package "luci-i18n-${app_name}-zh-cn"
-  add_artifact_package "luci-i18n-${app_name}-zh-tw"
 }
 
 generate_artifact_filters() {
@@ -577,8 +576,7 @@ artifact_package_group() {
 
   if package_file_matches_name "$package_file_name" gecoosac ||
     package_file_matches_name "$package_file_name" luci-app-gecoosac ||
-    package_file_matches_name "$package_file_name" luci-i18n-gecoosac-zh-cn ||
-    package_file_matches_name "$package_file_name" luci-i18n-gecoosac-zh-tw; then
+    package_file_matches_name "$package_file_name" luci-i18n-gecoosac-zh-cn; then
     printf 'luci-app-gecoosac\n'
     return 0
   fi
