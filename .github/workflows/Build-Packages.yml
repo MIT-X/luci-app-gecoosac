@@ -29,13 +29,8 @@ on:
         string: choice
         options:
           - ALL
-          - nginx
-          - luci-app-aria2
-          - luci-app-frpc
-          - luci-app-frps
           - luci-app-gecoosac
-          - luci-app-openlist2
-          - luci-theme-aurora
+
   workflow_call:
     inputs:
       sdk_version:
