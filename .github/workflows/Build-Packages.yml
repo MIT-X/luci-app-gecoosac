@@ -23,6 +23,7 @@ on:
           - x86-64
           - aarch64
       package:
+        description: 编译的软件包
         required: false
         default: luci-app-gecoosac
         string: choice
