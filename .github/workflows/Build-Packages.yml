@@ -4,13 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       sdk_version:
-        description: 可选：OpenWrt SDK 版本，ALL 表示全部版本，main 使用主线 snapshots，稳定版自动使用对应系列最新版本。
+        description: 可选：要编译的版本，ALL 表示全部。
         required: false
-        default: main
+        default: ALL
         type: choice
         options:
           - ALL
-          - main
           - '25.12'
           - '24.10'
           - '23.05'
@@ -86,7 +85,7 @@ jobs:
         selected_package = os.environ["SELECTED_PACKAGE"].lower()
         selected_sdk_version = os.environ["SELECTED_SDK_VERSION"]
 
-        sdk_versions = ["main", "25.12", "24.10", "23.05"]
+        sdk_versions = ["25.12", "24.10", "23.05"]
         architectures = ["x86-64", "aarch64"]
 
         if selected_sdk_version == "ALL":
@@ -201,7 +200,7 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
 
     - name: Checkout(检出代码)
-      uses: actions/checkout@v4
+      uses: actions/checkout@main
       with:
         persist-credentials: false
 
@@ -220,7 +219,7 @@ jobs:
         scripts/SDK-script.sh
 
     - name: Upload Packages Artifact(上传软件包产物)
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@main
       with:
         name: ${{ matrix.sdk_version }}-Packages-${{ matrix.name }}
         path: artifacts/packages/*
@@ -236,7 +235,7 @@ jobs:
 
     steps:
     - name: Download Packages Artifacts(下载软件包产物)
-      uses: actions/download-artifact@v4
+      uses: actions/upload-artifact@main
       with:
         pattern: ${{ inputs.sdk_version == 'ALL' && '*-Packages-*' || format('{0}-Packages-*', inputs.sdk_version) }}
         path: artifacts/release
