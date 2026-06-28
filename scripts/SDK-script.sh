@@ -577,8 +577,7 @@ artifact_package_group() {
 
   if package_file_matches_name "$package_file_name" gecoosac ||
     package_file_matches_name "$package_file_name" luci-app-gecoosac ||
-    package_file_matches_name "$package_file_name" luci-i18n-gecoosac-zh-cn ||
-    package_file_matches_name "$package_file_name" luci-i18n-gecoosac-zh-tw; then
+    package_file_matches_name "$package_file_name" luci-i18n-gecoosac-zh-cn; then
     printf 'luci-app-gecoosac\n'
     return 0
   fi
