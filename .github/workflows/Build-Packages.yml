@@ -28,7 +28,6 @@ on:
         default: luci-app-gecoosac
         string: choice
         options:
-          - ALL
           - luci-app-gecoosac
 
   workflow_call:
