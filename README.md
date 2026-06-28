@@ -5,4 +5,4 @@
 
 <h2 align="center">页面预览</h2>
 
-![Homepage](Homepage.png)
+![Homepage](Home.png)
